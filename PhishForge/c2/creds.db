@@ -1,0 +1,10 @@
+-- SQLite DB
+CREATE TABLE hits (
+  id INTEGER PRIMARY KEY,
+  ip TEXT,
+  username TEXT,
+  password TEXT,
+  page TEXT,
+  ua TEXT,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);

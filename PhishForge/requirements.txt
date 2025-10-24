@@ -1,0 +1,5 @@
+Flask==2.3.3
+PyYAML==6.0
+qrcode[pil]==7.4.2
+Pillow==10.0.0
+twilio==8.10.0

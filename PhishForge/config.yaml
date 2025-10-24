@@ -1,0 +1,13 @@
+twilio:
+  sid: "ACxxx"
+  token: "xxx"
+  from: "+1xxx"
+
+smtp:
+  server: "smtp.gmail.com"
+  port: 587
+  user: "you@gmail.com"
+  pass: "app_password"
+
+c2:
+  port: 5000

